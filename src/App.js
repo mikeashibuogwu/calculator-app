@@ -6,10 +6,10 @@ import Button from "./components/Button";
 
 const btnValues = [
   [0, "+-", "X", "/"],
-  [7, 8, 9,"-"],
+  [7, 8, 9, "-"],
   [4, 5, 6, "+"],
   [1, 2, 3, "."],
-  ["C",  "="],
+  ["C", "="],
 ];
 
 const toLocaleString = (num) =>
@@ -17,18 +17,16 @@ const toLocaleString = (num) =>
 
 const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
-function math(a, b, sign) 
-  // sign === "+" ? a + b : sign === "-" ? a - b : sign === "X" ? a * b : a / b; 
-{
+function math(a, b, sign) {
   if (sign === "/") {
-  return a / b;
-} else if (sign === "X") {
-  return a * b;
-} else if (sign === "-") {
-  return a - b;
-} else {
-  return a + b;
-}
+    return a / b;
+  } else if (sign === "X") {
+    return a * b;
+  } else if (sign === "-") {
+    return a - b;
+  } else {
+    return a + b;
+  }
 }
 const App = () => {
   let [calc, setCalc] = useState({
@@ -85,7 +83,8 @@ const App = () => {
             ? "Can't divide with 0"
             : math(
                 Number(removeSpaces(calc.res)),
-                Number(removeSpaces(calc.num)), calc.sign
+                Number(removeSpaces(calc.num)),
+                calc.sign
               ),
         sign: "",
         num: 0,
@@ -101,7 +100,6 @@ const App = () => {
       sign: "",
     });
   };
-
 
   const resetClickHandler = () => {
     setCalc({
